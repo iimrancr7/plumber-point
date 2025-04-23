@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Mukta:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+
+    /* font family */
+    --font-bricolage: "Bricolage Grotesque", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+    --font-mukta: "Mukta", sans-serif;
+    --font-rubik: "Rubik", sans-serif;
+  
+    /* brakpoint */
+    --breakpoint-1xl: 90rem;  /* 1440px */
+  
+    /* colors */
+    --color-black2: #222222;
+    --color-red: #DD3142;
+    --color-body: #6D6D6D;
+    --color-border: #707070;
+    /*  */
+}
+
+body{
+    @apply font-roboto text-base font-normal leading-[133.5%]
+  }
+  button{
+    @apply cursor-pointer
+  }
+  
+  @layer base{
+    h1{
+      @apply font-bricolage text-[2.75rem] font-bold
+    }
+    h2{
+      @apply font-roboto text-[2.75rem] font-bold 
+    }
+    h3{
+      @apply font-roboto text-3xl font-bold
+    }
+    h6{
+      @apply font-roboto text-sm
+    }
+    p{
+      @apply text-base 
+    }
+  }
+
+  @utility container{ 
+    @apply mx-auto px-4;
+    @media (width >= 90rem /* 1440px */) {
+          max-width: var(--breakpoint-1xl) /* 1440px */;
+          padding-inline: 8.438rem  /* 135px */; 
+      }
+}
+
+@layer components {
+  .menu-li-a{
+    @apply text-sm font-medium font-roboto inline-block hover:font-bold after:block after:font-bold after:content-[attr(data-title)] after:h-0 after:overflow-hidden after:invisible border-b-2 border-white transition-all duration-500 hover:border-red
+  }
+}
+
+@layer components {
+  .with-divider::after {
+    content: '';
+    @apply absolute top-[20%] right-[-12px] h-[60%] w-[1px] bg-white opacity-40;
+  }
+  
+}
